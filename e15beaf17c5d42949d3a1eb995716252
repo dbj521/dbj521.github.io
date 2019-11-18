@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>请点击右上角在浏览器中打开</title>
+		<meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+	</head>
+	<link href="1/H5.css" type="text/css" rel="stylesheet" />
+	<link href="1/you.css" type="text/css" rel="stylesheet" />
+
+	<body>
+		<!--
+        	描述：安全提醒
+        -->
+		<div id="anquan" style="display: none;">
+			<div class="anquan_img">
+				<img src="1/1563468436451.png" />
+			</div>
+			<span>此二维码已通过安全验证,可放心扫描</span>
+		</div>
+
+		<!--
+        	描述：群活码
+       -->
+		<div id="open_group" style="display: none;">
+			<div id="group">
+				<img src="e15beaf17c5d42949d3a1eb995716252">
+			</div>
+			<div class="changan">
+				<span>长按识别二维码</span>
+			</div>
+		</div>
+
+		<!--
+        	描述：循环码
+       -->
+		<div id="open_loop" style="display: none;">
+			<div id="loop">
+				<img src="e15beaf17c5d42949d3a1eb995716252">
+			</div>
+			<div class="changan">
+				<span>长按识别二维码</span>
+			</div>
+		</div>
+		<!--
+        	描述：分组
+        -->
+		<div class="Grouping" id="Grouping" style="display: none;">
+
+		</div>
+
+		<div class="m_img" id="Mask" style="display: none;">
+			<div class="Grouping_img" id="Grouping_img">
+				<img src="e15beaf17c5d42949d3a1eb995716252"  id="Grouping_src"/>
+			</div>
+			<h5 onclick="Mask(0)"><img src="1/shanchu.png"></img></h5>
+		</div>
+		
+		
+
+		<div class="wxtip" id="zhezhao" style="display: none;">
+			<span class="iconfont icon-_youshangjiaoyindao"></span>
+			<p class="wxtip-txt">点击右上角<br/>选择在浏览器中打开</p>
+		</div>
+		
+		
+		
+		<div id="wendangma" style="display: none;">
+			
+		</div>
+
+	</body>
+	<script src="1/H5.js" type="text/javascript"></script>
+	<script>
+        var max_visit_user_num = 0;
+		var functionId = "6";
+		var browser_limit_switch = null;
+		var safety_tips_switch = null;
+		var resList = null;
+		var editor_text = null;
+		if(max_visit_user_num!=-1) {
+            if (functionId == 1) {
+                if (safety_tips_switch == 1) {
+                    //安全提醒
+                    var anquan = document.getElementById('anquan').style.display = 'block';
+                } else {
+                    var anquan = document.getElementById('anquan').style.display = 'none';
+                }
+                //是否微信浏览器
+                if (browser_limit_switch == 1) {
+                    //限制浏览器 就判断是否为微信浏览器
+                    if (!isWeiXin()) {
+                        var open_group = document.getElementById('open_group').style.display = 'none';
+                        document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                        document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+                    } else {
+                        var open_group = document.getElementById('open_group').style.display = 'block';
+                    }
+                } else {
+                    //不限制浏览器
+                    var open_group = document.getElementById('open_group').style.display = 'block';
+                }
+
+
+                //循环码
+            } else if (functionId == 3) {
+                if (safety_tips_switch == 1) {
+                    //安全提醒
+                    var anquan = document.getElementById('anquan').style.display = 'block';
+                } else {
+                    var anquan = document.getElementById('anquan').style.display = 'none';
+                }
+                //是否微信浏览器
+                if (browser_limit_switch == 1) {
+                    //限制浏览器 就判断是否为微信浏览器
+                    if (!isWeiXin()) {
+                        var open_loop = document.getElementById('open_loop').style.display = 'none';
+                        document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                        document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+                    } else {
+                        var open_loop = document.getElementById('open_loop').style.display = 'block';
+                    }
+                } else {
+                    //不限制浏览器
+                    var open_loop = document.getElementById('open_loop').style.display = 'block';
+                }
+
+                //文档码
+            }  else if (functionId == 4) {
+                if (safety_tips_switch == 1) {
+                    //安全提醒
+                    var anquan = document.getElementById('anquan').style.display = 'block';
+                    var wendangma = document.getElementById('wendangma').style.marginTop = '3rem';
+                } else {
+                    var anquan = document.getElementById('anquan').style.display = 'none';
+                    var wendangma = document.getElementById('wendangma').style.marginTop = '0px';
+                }
+                //是否微信浏览器
+                if (browser_limit_switch == 1) {
+                    //限制浏览器 就判断是否为微信浏览器
+                    if (!isWeiXin()) {
+                        var open_loop = document.getElementById('open_loop').style.display = 'none';
+                        document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                        document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+                    } else {
+                    	
+                        var wendangma = document.getElementById('wendangma');
+                        wendangma.style.display = 'block';
+                        wendangma.innerHTML =editor_text;
+                        
+                    }
+                } else {
+                    //不限制浏览器
+                   var wendangma = document.getElementById('wendangma');
+                        wendangma.style.display = 'block';
+                        wendangma.innerHTML =editor_text;
+                }
+
+                //分组码
+            }else if (functionId == 5) {
+                if (safety_tips_switch == 1) {
+                    //安全提醒
+                    var anquan = document.getElementById('anquan').style.display = 'block';
+                } else {
+                    var anquan = document.getElementById('anquan').style.display = 'none';
+                }
+                //是否微信浏览器
+                if (browser_limit_switch == 1) {
+                    //限制浏览器 就判断是否为微信浏览器
+                    if (!isWeiXin()) {
+                        var Grouping = document.getElementById('Grouping').style.display = 'none';
+                        document.head.innerHTML = '<title>抱歉，出错了</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0"><link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/0.4.1/weui.css">';
+                        document.body.innerHTML = '<div class="weui_msg"><div class="weui_icon_area"><i class="weui_icon_info weui_icon_msg"></i></div><div class="weui_text_area"><h4 class="weui_msg_title">请在微信客户端打开链接</h4></div></div>';
+                    } else {
+                        //不限制浏览器
+                        var Grouping = document.getElementById('Grouping');
+                        for (var i = 0; i < resList.length; i++) {
+                            var but = document.createElement('div');
+                            but.setAttribute('value', resList[i].img_url);
+                            but.innerHTML = '<button onclick="open_Grouping(this)" value="' + resList[i].img_url + '">' + resList[i].note + '</button>';
+                            Grouping.appendChild(but);
+                        }
+                        Grouping.style.display = 'block';
+                    }
+                } else {
+                    //不限制浏览器
+                    var Grouping = document.getElementById('Grouping');
+                    for (var i = 0; i < resList.length; i++) {
+                        var but = document.createElement('div');
+                        but.setAttribute('value', resList[i].img_url);
+                        but.innerHTML = '<button onclick="open_Grouping(this)" value="' + resList[i].img_url + '">' + resList[i].note + '</button>';
+                        Grouping.appendChild(but);
+                    }
+                    Grouping.style.display = 'block';
+                }
+                //6
+            } else if (functionId == 6) {
+                if (!isWeiXin()) {
+                    window.location.href = "dbj.html";
+                } else {
+                    var zhezhao = document.getElementById('zhezhao').style.display = 'block';
+                }
+            }else{
+            	
+            }
+
+        }else{
+		    alert("日访问次数达到上限");
+        }
+        
+        
+        
+        
+        function a(){
+        	
+        }
+        
+        
+        
+
+	</script>
+
+</html>

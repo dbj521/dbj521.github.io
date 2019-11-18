@@ -1,0 +1,275 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #fff;
+}
+
+
+/*长按识别二维码*/
+
+.changan {
+	width: 100%;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	font-size: 0.8rem;
+	color: #CCCCCC;
+}
+
+#group {
+	width: 90%;
+	margin-left: 5%;
+	height: auto;
+	margin-top: 4rem;
+	text-align: center;
+}
+
+#group img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #CCCCCC;
+}
+#loop {
+	width: 90%;
+	margin-left: 5%;
+	height: auto;
+	background-color: #FFFFFF;
+	margin-top: 4rem;
+	text-align: center;
+}
+
+#loop img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #CCCCCC;
+}
+
+
+/*安全提醒*/
+
+#anquan {
+	width: 100%;
+	height: 3rem;
+	line-height: 3rem;
+	background: rgba(0, 0, 0, 0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#anquan span {
+	font-size: 0.9rem;
+	color: #FFFFFF;
+	margin-left: 0.5rem;
+}
+
+.anquan_img {
+	width: 2rem;
+	height: 2rem;
+	float: left;
+	background-color: #07C160;
+	border-radius: 100%;
+	margin-left: 1rem;
+	margin-top: 0.5rem;
+	position: relative;
+}
+
+.anquan_img img {
+	width: 1.5rem;
+	margin-left: 0.25rem;
+	position: absolute;
+	top: 0.25rem;
+}
+
+.wxtip {
+	background: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 998;
+	display: none;
+}
+.wxtip-txt {
+	margin-top: 50%;
+	color: #fff;
+	font-size: 16px;
+	line-height: 2rem;
+}
+
+
+/**/
+
+#Mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 1;
+	animation: MiniDialogMaskShow 0.35s;
+	animation-fill-mode: forwards;
+}
+
+#Mask h5{
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: #FFFFFF;
+	font-size:3rem;
+	margin-top: 1rem;
+}
+
+#zhezhao {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 1;
+	animation: MiniDialogMaskShow 0.35s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes MiniDialogMaskShow {
+	0% {
+		opacity: 0;
+	}
+	5% {
+		opacity: 0.05;
+	}
+	10% {
+		opacity: 0.1;
+	}
+	15% {
+		opacity: 0.15;
+	}
+	20% {
+		opacity: 0.2;
+	}
+	25% {
+		opacity: 0.25;
+	}
+	30% {
+		opacity: 0.3;
+	}
+	35% {
+		opacity: 0.35;
+	}
+	40% {
+		opacity: 0.4;
+	}
+	45% {
+		opacity: 0.45;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	55% {
+		opacity: 0.55;
+	}
+	60% {
+		opacity: 0.6;
+	}
+	65% {
+		opacity: 0.65;
+	}
+	70% {
+		opacity: 0.7;
+	}
+	75% {
+		opacity: 0.75;
+	}
+	80% {
+		opacity: 0.8;
+	}
+	85% {
+		opacity: 0.85;
+	}
+	90% {
+		opacity: 0.9;
+	}
+	95% {
+		opacity: 0.95;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
+/*分组码*/
+.Grouping{
+	width: 100%;
+	height: auto;
+	margin-top: 4rem;
+}
+
+.Grouping button{
+	width: auto;
+	padding-left:8%;
+	padding-right: 8%;
+	margin-left: 5%;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	margin-bottom: 1rem;
+	border: 0;
+	outline: 0;
+    color: #333333;
+	font-weight: bold;
+	box-shadow: 0 0 10px #F1F1F1;
+	border: 1px solid #F1F1F1;
+    background: rgba(255, 255, 255, 0.7);
+    transition: background-color 0.3s;
+    background-color: #FFFFFF;
+    float: left;
+	border-radius:10px;
+	font-size: 17px;
+}
+
+.xunhuan button:active{
+    background-color: #0084FF;
+    color: #FFFFFF;
+}
+
+
+
+
+
+/**/
+
+.Grouping_img{
+	width: 90%;
+	height: auto;
+	margin-left: 5%;
+	border-radius: 2%;
+	background-color: #FFFFFF;
+	margin-top: 10%;
+	padding-top: 10%;
+	padding-bottom: 10%;
+}
+
+.Grouping_img img{
+	width: 70%;
+	height: auto;
+	margin-left: 15%;
+}
+
+.Grouping_img span{
+	display: block;
+	width: 100%;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+}
